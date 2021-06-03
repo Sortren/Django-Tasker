@@ -1,0 +1,60 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'to_do/home.css'%}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Tasker</title>
+</head>
+
+<body>
+    <main>
+        <div class = "app">
+            <div class = "top-bar-container">
+                <div class = "top-bar-data">
+                    <span class = "menu">Tasker</span>
+                    <span class = "menu">DASHBOARD</span>
+                    <span class = "menu">TASKS LIST</span>
+                    <button onclick = "logout()" type = "button">Log out</button>
+                    <p id = "user-info"> </p>
+                    
+                </div>
+            </div>
+
+            <div class = "row-bars">
+                <div class ="left-bar-container">
+                    <div class = "left-bar-data">
+                        <span class = "header"> Your tasks list</span>
+                        <ol class = "list">
+                            <!-- data fetched from 'GET' -->
+                        </ol>
+                        
+                        <label for = "taskName">Add new task</label>
+                        <input
+                        id="taskName"
+                        type="text"
+                        />
+
+                        <button onclick = "send()" type = "button">+</button>
+                        <p>Remove checked tasks</p>
+                        <button onclick = "remove()" type = "button">-</button>
+                    </div>
+                </div>
+                
+                <div class = "right-bar-container">
+                    <div class = "right-bar-data">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- <script src = "./scripts/tasks.js"></script>
+    <script src = "./scripts/logout.js"></script>  -->
+</body>
+</html>
