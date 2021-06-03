@@ -1,0 +1,24 @@
+{% extends "to_do/base_auth.html" %}
+
+{%block login_box%}
+    <div class = "login-box" style="height:606.24px;">
+{%endblock login_box%}
+
+{% block header %}
+    <span id = "welcome-back">Welcome back in Tasker</span>
+    <span id = "login-header">Login to your account</span>
+{% endblock header %}
+
+
+{%block remember%}
+    <div class = "remember">
+        <div class = "checkbox-remember">
+            <input 
+            id="remember"
+            type="checkbox"
+            class="checkbox">Remember me</input>
+        </div>
+
+        <a href = ""><span>Forgot password?</span></a>
+    </div>
+{%endblock remember%}
