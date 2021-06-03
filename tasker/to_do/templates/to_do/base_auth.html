@@ -59,12 +59,16 @@
                 {%endblock remember%}
 
                 <div class = "buttons">
-                    <button onclick = "submit()" type = "button" id = "login">Login now</button>
+                    {%block buttons%}
+                        
+                    {%endblock buttons%}
                     <button onclick = "" type = "button" id = "google"><img src = "https://cdn.icon-icons.com/icons2/729/PNG/128/google_icon-icons.com_62736.png" width = "20" height = "20">Or sign-in with google</button>    
                 </div>
                 
                 <div class = "register-now">
-                    <p>Don't have an account? <a href = "register.html"> Register now</a></p>
+                    {%block register_now%}
+                    
+                    {%endblock register_now%}
                 </div>
             
             </div>
