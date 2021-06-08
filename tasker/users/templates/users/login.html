@@ -1,0 +1,35 @@
+{% extends "users/base_auth.html" %}
+
+{% block header %}
+    <span id = "welcome-back">Welcome back in Tasker</span>
+    <span id = "login-header">Login to your account</span>
+{% endblock header %}
+
+
+{% block content %}
+    <form method="POST" class="register-form">
+        {% csrf_token %}
+
+        <div class="inputs-container">
+            <div class="inputs">
+                <label for="id_email">Email</label>
+    
+            </div>
+    
+            <div class="inputs">
+                <label for="id_password1">Password</label>
+                
+            </div>
+        </div>
+
+        <div class="buttons-container">
+            <button class ="register-button" type = "submit">Login now</button>
+            <button class ="google-button" type = "button">Or sign-in with Google</button>
+        </div>
+
+        <small class = "text-muted">
+            Dont have an account? <a href = "{% url 'register' %}"> Register now</a>
+        </small>
+
+    </form>
+{% endblock content %}

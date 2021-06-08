@@ -7,7 +7,7 @@
 
 main {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
   background-color: #e5e5e5;
@@ -58,12 +58,46 @@ main {
   flex-direction: column;
 }
 
-.list button {
-}
+/* ======================================== */
 
 .right-bar-container {
   border-radius: 25px;
   width: 880px;
   height: 650px;
   background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.content-section {
+  margin-top: 10px;
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+  margin: 0px;
+}
+
+.header {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.text-muted {
+  margin: 0px;
 }

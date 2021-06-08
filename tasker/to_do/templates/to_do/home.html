@@ -1,60 +1,15 @@
-{%load static%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'to_do/home.css'%}">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <title>Tasker</title>
-</head>
+{%extends "to_do/base_home.html"%}
 
-<body>
-    <main>
-        <div class = "app">
-            <div class = "top-bar-container">
-                <div class = "top-bar-data">
-                    <span class = "menu">Tasker</span>
-                    <span class = "menu">DASHBOARD</span>
-                    <span class = "menu">TASKS LIST</span>
-                    <button onclick = "logout()" type = "button">Log out</button>
-                    <p id = "user-info"> </p>
-                    
+{%block tasks%}
+    {% for task in tasks%}
+        <article class="media content-section">
+            <div class = "media-body">
+                <div class = "header">
+                    <small class="text-muted">{{task.date_posted}}</small>
+                    <h5><a class="article-title" href="#">{{ task.title }}</a></h5>
                 </div>
+                <p class="article-content">{{task.content}}</p>
             </div>
-
-            <div class = "row-bars">
-                <div class ="left-bar-container">
-                    <div class = "left-bar-data">
-                        <span class = "header"> Your tasks list</span>
-                        <ol class = "list">
-                            <!-- data fetched from 'GET' -->
-                        </ol>
-                        
-                        <label for = "taskName">Add new task</label>
-                        <input
-                        id="taskName"
-                        type="text"
-                        />
-
-                        <button onclick = "send()" type = "button">+</button>
-                        <p>Remove checked tasks</p>
-                        <button onclick = "remove()" type = "button">-</button>
-                    </div>
-                </div>
-                
-                <div class = "right-bar-container">
-                    <div class = "right-bar-data">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- <script src = "./scripts/tasks.js"></script>
-    <script src = "./scripts/logout.js"></script>  -->
-</body>
-</html>
+        </article>
+    {%endfor%}
+{%endblock tasks%}
