@@ -19,43 +19,41 @@
 <body>
     <main>
         <div class = "app">
-            <div class = "top-bar-container">
-                <div class = "top-bar-data">
-                    <span class = "menu">Tasker</span>
-                    <span class = "menu">DASHBOARD</span>
-                    <span class = "menu">TASKS LIST</span>
-                    <button onclick = "logout()" type = "button">Log out</button>
-                    <p id = "user-info"> </p>
-                    
+            <div class = "top-bar">
+                <div class="left-part">
+                    <span class = "app-name">Tasker</span>
+                    <a href = "{% url 'to_do-home' %}">DASHBOARD</a>
+                </div>
+            
+                <div class="right-part">
+                    <svg class = "loupe" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.5 14.8095C16.0396 13.3514 17 11.2879 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17C11.1304 17 13.0663 16.1672 14.5 14.8095ZM14.5 14.8095L20 20" stroke="#ACBAC3" stroke-width="2"/>
+                    </svg>
+            
+                    <svg class = "ring" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 13L18 9C18 4.58172 14.4183 1 10 1C5.58175 1 2.00002 4.58172 2.00002 9L2 13L1 14V17H7.55001C7.78164 18.1411 8.79052 19 10 19C11.2095 19 12.2184 18.1411 12.45 17H19V14L18 13Z" stroke="#ACBAC3" stroke-width="2" stroke-linejoin="round"/>
+                        
+                    </svg>
+                
+                    <a href = "{% url 'profile' %} "class = "username">{{ user.username }}</span>
+                    <a href="{% url 'logout' %}">Log out</a>
                 </div>
             </div>
 
-            <div class = "row-bars">
-                <div class ="left-bar-container">
-                    <div class = "left-bar-data">
-                        <span class = "header"> Your tasks list</span>
-                        <ol class = "list">
-                            <!-- data fetched from 'GET' -->
-                        </ol>
-                        
-                        <label for = "taskName">Add new task</label>
-                        <input
-                        id="taskName"
-                        type="text"
-                        />
+            <div class = "struct">
+                <div class = "left-box">
+                    
 
-                        <button onclick = "send()" type = "button">+</button>
-                        <p>Remove checked tasks</p>
-                        <button onclick = "remove()" type = "button">-</button>
-                    </div>
+
                 </div>
                 
-                <div class = "right-bar-container">
-                    <div class = "col-md-10">
-                        {%block tasks%}
-
-                        {%endblock tasks%}
-                    </div>
+                <div class = "right-box">
+                    {% block tasks %}
+                    {% endblock tasks %}
+                    
+                    <!-- temporary! -->
+                    {%block profile%}
+                    {%endblock profile%}
                 </div>
             </div>
         </div>

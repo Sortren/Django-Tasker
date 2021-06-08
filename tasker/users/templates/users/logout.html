@@ -1,0 +1,19 @@
+{% extends "users/base_auth.html" %}
+
+{% block header %}
+    
+{% endblock header %}
+
+
+{% block content %}
+    <div class="register-form">
+        <span class = "">
+            You are successfuly log out!
+        </span>
+
+        <small class = "text-muted">
+            Want to go back? <a href = "{% url 'login' %}"> Log in again</a>
+        </small>
+
+    </div>
+{% endblock content %}

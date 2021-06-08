@@ -17,5 +17,5 @@ def register(request):
     return render(request, 'users/register.html', {'form': form})
 
 
-def login(request):
-    return render(request, 'users/login.html')
+def profile(request):
+    return render(request, 'users/profile.html')
