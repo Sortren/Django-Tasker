@@ -22,7 +22,7 @@
             <div class = "top-bar">
                 <div class="left-part">
                     <span class = "app-name">Tasker</span>
-                    <a href = "{% url 'to_do-home' %}">DASHBOARD</a>
+                    <a class = "dashboard" href = "{% url 'to_do-home' %}">DASHBOARD</a>
                 </div>
             
                 <div class="right-part">
@@ -35,16 +35,17 @@
                         
                     </svg>
                 
-                    <a href = "{% url 'profile' %} "class = "username">{{ user.username }}</span>
-                    <a href="{% url 'logout' %}">Log out</a>
+                    <div class="hrefs">
+                        <a href = "{% url 'profile' %} " class = "username">{{ user.username }}</span>
+                        <a href="{% url 'logout' %}" class = "logout">Log out</a>
+                    </div>
                 </div>
             </div>
 
             <div class = "struct">
                 <div class = "left-box">
-                    
-
-
+                    {% block add_task%}
+                    {% endblock add_task%}
                 </div>
                 
                 <div class = "right-box">
