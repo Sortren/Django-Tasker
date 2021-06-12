@@ -20,48 +20,29 @@
     <main>
         <div class = "app">
             <div class = "top-bar">
-                <div class="left-part">
-                    <span class = "app-name">Tasker</span>
-                    <a class = "dashboard" href = "{% url 'to_do-home' %}">DASHBOARD</a>
+                <div class="text">
+                    <span class="welcome">Welcome back <a href = "{% url 'profile' %} " class = "username">{{ user.username }},</a></span>
+                    <span class="incomplete">You have <i>only "$i"</i> tasks to do!</span>
                 </div>
-            
-                <div class="right-part">
-                    <svg class = "loupe" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.5 14.8095C16.0396 13.3514 17 11.2879 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17C11.1304 17 13.0663 16.1672 14.5 14.8095ZM14.5 14.8095L20 20" stroke="#ACBAC3" stroke-width="2"/>
-                    </svg>
-            
-                    <svg class = "ring" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 13L18 9C18 4.58172 14.4183 1 10 1C5.58175 1 2.00002 4.58172 2.00002 9L2 13L1 14V17H7.55001C7.78164 18.1411 8.79052 19 10 19C11.2095 19 12.2184 18.1411 12.45 17H19V14L18 13Z" stroke="#ACBAC3" stroke-width="2" stroke-linejoin="round"/>
-                        
-                    </svg>
-                
-                    <div class="hrefs">
-                        <a href = "{% url 'profile' %} " class = "username">{{ user.username }}</span>
-                        <a href="{% url 'logout' %}" class = "logout">Log out</a>
-                    </div>
+
+                <div class="logout">
+                    <a href="{% url 'logout' %}" class = "logout">Log out</a>
                 </div>
             </div>
+            <div class="search-add">
+                <input type="text">
+                <button class = "btn btn-primary">+</button>
+            </div>
 
-            <div class = "struct">
-                <div class = "left-box">
-                    {% block add_task%}
-                    {% endblock add_task%}
-                </div>
-                
-                <div class = "right-box">
+            <div class = "struct">   
+                <div class = "tasks-container">
                     {% block tasks %}
                     {% endblock tasks %}
-                    
-                    <!-- temporary! -->
-                    {%block profile%}
-                    {%endblock profile%}
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- <script src = "./scripts/tasks.js"></script>
-    <script src = "./scripts/logout.js"></script>  -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
