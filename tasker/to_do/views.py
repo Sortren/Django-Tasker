@@ -17,6 +17,8 @@ def home(request):
             form = AddTask()
         else:
             form = AddTask()
+    elif request.method == 'GET':
+        form = AddTask()
 
     context = {
         'tasks': Task.objects.filter(author=request.user),
