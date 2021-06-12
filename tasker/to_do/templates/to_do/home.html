@@ -1,49 +1,37 @@
-{%extends "to_do/base_home.html"%}
+{%extends "to_do/base_home.html"%} {% block add_task%}
+<form method="POST" class="register-form">
+  {% csrf_token %}
 
+  <div class="inputs-container">
+    <div class="inputs">
+      <label for="id_title">Title</label>
+      {{form.title}}
+    </div>
 
-{% block add_task%}
-    <form method="POST" class="register-form">
-        {% csrf_token %}
+    <div class="inputs">
+      <label for="id_title">Content</label>
+      {{form.content}}
+    </div>
+  </div>
 
-        <div class="inputs-container">
-            <div class="inputs">
-                <label for="?">Title</label>
-                <input type="text"></input>
+  <div class="buttons-container">
+    <button class="register-button" type="#">Add task</button>
+  </div>
 
-            </div>
-
-            <div class="inputs">
-                <label for="?">Content</label>
-                <input type="text"></input>
-
-            </div>
-        </div>
-        
-        <div class="buttons-container">
-            <button class ="register-button" type = "#">Add task</button>
-        </div>
-
-        <small class = "text-muted">
-            Such a lovely day, isn't it?<a href = "https://www.weather-forecast.com/"> Check the weather</a>
-        </small>
-
-    </form>
-{% endblock add_task%}
-
-
-{%block tasks%}
-    {% for task in tasks %}
-        <div class="task-wrapper">
-            <div class="task">
-                <div class="header">
-                    <span class="text-muted">{{task.date_posted}}</span>
-                    <a class="task-title" href="#">{{ task.title }}</a>
-                </div>
-                <p class="task-content">
-                    {{task.content}}
-                </p>
-            </div>
-        </div>
-    {%endfor%}
-{%endblock tasks%}
-
+  <small class="text-muted">
+    Such a lovely day, isn't it?<a href="https://www.weather-forecast.com/">
+      Check the weather</a
+    >
+  </small>
+</form>
+{% endblock add_task%} {%block tasks%} {% for task in tasks %}
+<div class="task-wrapper">
+  <div class="task">
+    <div class="header">
+      <span class="text-muted">{{task.date_posted}}</span>
+      <a class="task-title" href="#">{{ task.title }}</a>
+    </div>
+    <p class="task-content">{{task.content}}</p>
+  </div>
+</div>
+{%endfor%} {%endblock tasks%}
