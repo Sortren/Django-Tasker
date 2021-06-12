@@ -1,6 +1,8 @@
-from django import forms
+from .models import Task
+from django.forms import ModelForm
 
 
-class AddTask(forms.Form):
-    title = forms.CharField(max_length=100)
-    content = forms.CharField(max_length=2000)
+class AddTaskForm(ModelForm):
+    class Meta:
+        model = Task
+        fields = ['title', 'content']
