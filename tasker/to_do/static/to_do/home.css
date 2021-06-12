@@ -16,63 +16,62 @@ main {
 .app {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 30%;
   margin: auto;
-  gap: 37px;
+  border-radius: 10px;
+  background-color: white;
 }
 
 .top-bar {
-  background-color: white;
-  border-radius: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
+  padding: 10px;
 }
 
-.left-part {
+.text {
   display: flex;
-  align-items: center;
-  gap: 30px;
+  flex-direction: column;
+  padding-top: 50px;
+  gap: 10px;
 }
 
-.app-name {
-  font-size: 28px;
-  color: #2d3748;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+.welcome {
+  font-size: 36px;
 }
 
-.dashboard {
-  color: #868f96;
-  font-size: 14px;
-  font-weight: 600;
+.welcome a {
+  color: black;
+  text-decoration: none;
 }
 
-.right-part {
+.incomplete {
+  font-size: 24px;
+}
+
+.logout {
+  text-decoration: none;
+  color: black;
+}
+
+/* -------------------------------- */
+.search-add {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+  padding: 30px 10px 20px 10px;
 }
 
-.hrefs {
-  margin-left: 40px;
-}
-
+/* -------------------------------- */
 .struct {
   display: flex;
   gap: 41px;
-  height: 750px;
 }
 
-.left-box {
-  background-color: white;
-  border-radius: 25px;
-  flex: 0.3;
-}
-
-.right-box {
-  background-color: white;
-  border-radius: 25px;
+.tasks-container {
+  display: flex;
+  flex-direction: column;
   flex: 1;
-  padding: 20px 20px 0px 20px;
-  overflow-y: scroll;
+}
+
+.task {
+  border: 1px solid black;
 }
