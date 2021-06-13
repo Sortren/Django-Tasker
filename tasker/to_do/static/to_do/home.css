@@ -206,6 +206,7 @@ main {
   padding-top: 10px;
   outline: none;
   border: 0.5px solid lightgrey;
+  border-radius: 5px;
 }
 
 .buttons-container {

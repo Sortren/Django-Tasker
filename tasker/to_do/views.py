@@ -7,24 +7,29 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='login')
 def home(request):
     context = {
-        'tasks': Task.objects.filter(author=request.user),
+        # Displaying tasks only for logged in user, ordered by id - descendingly (newest task is on top of the stack)
+        'tasks': Task.objects.filter(author=request.user).order_by('-id'),
     }
 
     return render(request, 'to_do/home.html', context)
 
 
 @login_required(login_url='login')
-def addTask(request):
-    form = AddTaskForm(request.POST or None)
+def add_task(request):
+    if request.method == 'POST':
+        form = AddTaskForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            task = Task(title=data.get('title'), content=data.get(
+                'content'), author=request.user)
+            task.save()
 
-    if form.is_valid():
-        form.save()
+            form = AddTaskForm()
     else:
         form = AddTaskForm()
 
     context = {
         'form': form,
-
     }
 
     return render(request, 'to_do/add_task.html', context)
