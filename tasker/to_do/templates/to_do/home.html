@@ -1,18 +1,28 @@
 {%extends "to_do/base_home.html"%} 
 
+{% block search-add %}
+  <div class="search-add">
+    <div class="search">
+        <input type="text" class = "input">
+        <button class = "button-search">Search</button>
+    </div>
+    <div class="add">
+        <a href = "{% url 'add-task' %}" class = "add-task">+</a>
+    </div>
+  </div>
+{% endblock search-add %}
+
+
 {%block tasks%} 
   {% for task in tasks %}
     <div class="task">
-      <div class="header">
-        <a class="task-title" href="#">{{ task.title }}</a>
+      <div class="content">
+        <span class="dot"></span>
+        <a href="#" class="task-title">{{ task.title }}</a>
       </div>
 
-      <p class="task-content">{{task.content}}</p>
-
-      <div class="button-container">
-        <button class="btn btn-danger" type="button">Delete</button>
-      </div>
-
+      <a href="#" class="delete-task">X</a>
+      
     </div>
   {%endfor%} 
 {%endblock tasks%}

@@ -20,24 +20,29 @@
     <main>
         <div class = "app">
             <div class = "top-bar">
+                <div class="navigation">
+                    <a href="{% url 'to_do-home' %}" class = "logout">Home</a>
+                    <a href="{% url 'logout' %}" class = "logout">Log out</a>
+                </div>
+
                 <div class="text">
                     <span class="welcome">Welcome back <a href = "{% url 'profile' %} " class = "username">{{ user.username }},</a></span>
                     <span class="incomplete">You have <i>only "$i"</i> tasks to do!</span>
                 </div>
 
-                <div class="logout">
-                    <a href="{% url 'logout' %}" class = "logout">Log out</a>
-                </div>
+                
             </div>
-            <div class="search-add">
-                <input type="text">
-                <button class = "btn btn-primary">+</button>
-            </div>
+
+            {% block search-add %}
+            {% endblock search-add %}
 
             <div class = "struct">   
                 <div class = "tasks-container">
                     {% block tasks %}
                     {% endblock tasks %}
+
+                    {% block profile%}
+                    {% endblock profile%}
                 </div>
             </div>
         </div>

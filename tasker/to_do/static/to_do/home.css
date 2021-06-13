@@ -20,18 +20,27 @@ main {
   margin: auto;
   border-radius: 10px;
   background-color: white;
+  overflow: hidden;
 }
 
 .top-bar {
+  color: white;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  /* justify-content: space-between; */
   padding: 10px;
+  background: rgb(251, 110, 63);
+  background: linear-gradient(
+    90deg,
+    rgba(251, 110, 63, 0.9500175070028011) 10%,
+    rgba(252, 229, 70, 1) 100%
+  );
 }
 
 .text {
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
+  padding-top: 30px;
   gap: 10px;
 }
 
@@ -40,7 +49,7 @@ main {
 }
 
 .welcome a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -48,9 +57,15 @@ main {
   font-size: 24px;
 }
 
-.logout {
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navigation a {
+  color: white;
   text-decoration: none;
-  color: black;
 }
 
 /* -------------------------------- */
@@ -60,8 +75,52 @@ main {
   padding: 30px 10px 20px 10px;
 }
 
+.input {
+  outline: none;
+  border: 0.5px solid lightgrey;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.search {
+  display: flex;
+  gap: 5px;
+}
+
+.button-search {
+  text-decoration: none;
+  border: 0.5px solid lightgrey;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  background: rgb(251, 110, 63);
+  background: linear-gradient(
+    90deg,
+    rgba(251, 110, 63, 0.9500175070028011) 10%,
+    rgba(252, 229, 70, 1) 100%
+  );
+}
+
+.button-search:focus {
+  outline: none;
+}
+
+.add-task:hover,
+.add-task {
+  font-size: 24px;
+  color: rgb(251, 110, 63);
+  text-decoration: none;
+  color: linear-gradient(
+    90deg,
+    rgba(251, 110, 63, 0.9500175070028011) 10%,
+    rgba(252, 229, 70, 1) 100%
+  );
+}
+
 /* -------------------------------- */
 .struct {
+  border-top: 1px solid lightgrey;
   display: flex;
   gap: 41px;
 }
@@ -73,5 +132,39 @@ main {
 }
 
 .task {
-  border: 1px solid black;
+  border-bottom: 0.5px solid lightgrey;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  gap: 10px;
+}
+
+.content a {
+  color: rgb(145, 145, 145);
+  font-size: 18px;
+}
+
+.task a:hover {
+  text-decoration: none;
+}
+
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+}
+
+.delete-task,
+.delete-task:hover {
+  color: rgb(251, 110, 63);
+  color: linear-gradient(
+    90deg,
+    rgba(251, 110, 63, 0.9500175070028011) 10%,
+    rgba(252, 229, 70, 1) 100%
+  );
 }
