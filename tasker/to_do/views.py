@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import Task
 from .forms import AddTaskForm
 from django.contrib.auth.decorators import login_required
@@ -33,3 +33,18 @@ def add_task(request):
     }
 
     return render(request, 'to_do/add_task.html', context)
+
+
+@login_required(login_url='login')
+def delete_task(request, id):
+    task = get_object_or_404(Task, id=id)
+    if request.method == 'POST':
+        # confirm that we want to delete a task
+        task.delete()
+        return redirect('to_do-home')
+
+    context = {
+        "task": task,
+    }
+
+    return render(request, 'to_do/delete_task.html', context)

@@ -1,0 +1,9 @@
+{%extends "to_do/base_home.html"%} 
+
+{% block delete_task %}
+    <form method="POST" class="delete-task-form">
+        {% csrf_token %}
+        <span>Are you sure you want to delete this task?</span>
+        <button type="submit">DELETE</button>
+    </form>
+{% endblock delete_task %} 

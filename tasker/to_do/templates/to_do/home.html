@@ -21,7 +21,7 @@
         <a href="#" class="task-title">{{ task.title }}</a>
       </div>
 
-      <a href="#" class="delete-task">X</a>
+      <a href="{% url 'delete-task' task.id %}" class="delete-task">X</a>
       
     </div>
   {%endfor%} 
