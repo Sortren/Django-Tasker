@@ -27,4 +27,4 @@ def addTask(request):
 
     }
 
-    return render(request, 'to_do/home.html', context)
+    return render(request, 'to_do/add_task.html', context)

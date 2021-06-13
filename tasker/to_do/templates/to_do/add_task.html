@@ -1,7 +1,7 @@
 {%extends "to_do/base_home.html"%} 
 
 {% block add_task%}
-  <form method="POST" class="">
+  <form method="POST" class="add-task-form">
     {% csrf_token %}
 
     <div class="inputs-container">
@@ -11,18 +11,20 @@
       </div>
 
       <div class="inputs">
-        <label for="id_title">Content</label>
+        <label for="id_content">Content</label>
         {{form.content}}
       </div>
     </div>
 
-    <div class="buttons-container">
-      <button class="btn btn-primary" type="button">Add task</button>
+    <div class="checkboxes">
+      <span>Task finished</span>
+      <input type="checkbox" class="checkbox">
     </div>
-  </form>
 
-  <small class="text-muted">
-    Such a lovely day, isn't it?<a href="https://www.weather-forecast.com/">
-      Check the weather</a>
-  </small>
+    <div class="buttons-container">
+      <button class="add-task-button" type="button">Add task</button>
+    </div>
+
+
+  </form>
 {% endblock add_task%} 

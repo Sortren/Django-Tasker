@@ -168,3 +168,76 @@ main {
     rgba(252, 229, 70, 1) 100%
   );
 }
+/* -------------------------------- */
+/* -----------FORM ADD-TASK----------- */
+
+.add-task-form {
+  padding: 10px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs input {
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #e8e8e8;
+  outline: none;
+  padding-left: 20px;
+  color: #2d3748;
+}
+
+.inputs label {
+  color: rgb(145, 145, 145);
+}
+
+.inputs-container {
+  margin: 30px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#id_content,
+#id_content:focus {
+  padding-left: 20px;
+  padding-top: 10px;
+  outline: none;
+  border: 0.5px solid lightgrey;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.buttons-container button:focus,
+.buttons-container button {
+  outline: none;
+  color: white;
+  border-radius: 5px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: rgb(251, 110, 63);
+  background: linear-gradient(
+    90deg,
+    rgba(251, 110, 63, 0.9500175070028011) 10%,
+    rgba(252, 229, 70, 1) 100%
+  );
+}
+
+.checkboxes {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.checkboxes span {
+  color: rgb(145, 145, 145);
+}
