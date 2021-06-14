@@ -4,11 +4,17 @@ from django.contrib.auth.models import User
 
 
 class Task(models.Model):
+    class Priority(models.IntegerChoices):
+        LOW = 1
+        MEDIUM = 2
+        HIGH = 3
+
     title = models.CharField(max_length=100)
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     finished = models.BooleanField(default=False)
     updated = models.BooleanField(default=False)
+    priority = models.IntegerField(default=1, choices=Priority.choices)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

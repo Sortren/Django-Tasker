@@ -19,8 +19,15 @@
     
 
     <div class="checkboxes">
-      <span>Task finished</span>
-      {{form.finished}}
+      <div class="finished">
+        <span>Task finished</span>
+        {{form.finished}}
+      </div>
+
+      <div class="priority">
+        <span>Priority</span>
+        {{form.priority}}
+      </div>
     </div>
 
     {% if name == 'update-task' %}

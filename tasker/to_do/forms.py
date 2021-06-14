@@ -5,7 +5,8 @@ from django import forms
 class AddTaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        fields = ['title', 'content', 'author', 'finished', 'updated']
+        fields = ['title', 'content', 'author',
+                  'finished', 'updated', 'priority']
         widgets = {
             'content': forms.Textarea(attrs={
                 'rows': 3,
