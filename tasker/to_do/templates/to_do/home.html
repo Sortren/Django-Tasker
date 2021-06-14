@@ -20,24 +20,14 @@
 
 
 {% block mid-panel %}
-  <div class="sort-buttons">
-
-    <div class="method">
-      <span class="sort-by">Sort by</span>
-    </div>
-
-    <div class="priority">    
-      <button class = "button priority">Priority</button>
-    </div>
+  <div class="sort">
+    <form method="POST">
+      {% csrf_token %}
+      <!-- component injected here -->
+      
+      <button class = "button" type="submit">Sort</button>
+    </form>
     
-    <div class="deadline">
-      <button class = "button deadline">Deadline</button>
-    </div>
-
-    <div class="newest">
-      <button class = "button newest">Newest</button>
-    </div>
-
   </div>
 
   <div class="add">

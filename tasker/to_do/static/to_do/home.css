@@ -90,15 +90,11 @@ main {
   justify-content: space-between;
 }
 
-.sort-buttons {
+.sort {
   display: flex;
   align-items: center;
   gap: 20px;
   padding: 30px 10px 20px 10px;
-}
-
-.sort-by {
-  letter-spacing: 1px;
 }
 
 .button,
@@ -109,7 +105,7 @@ main {
   cursor: pointer;
   border-radius: 5px;
   color: white;
-  padding: 5px;
+  padding: 5px 15px 5px 15px;
   background: rgb(251, 110, 63);
   background: linear-gradient(
     90deg,
