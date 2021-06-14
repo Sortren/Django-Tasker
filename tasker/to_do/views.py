@@ -9,6 +9,7 @@ def home(request):
     context = {
         # Displaying tasks only for logged in user, ordered by id - descendingly (newest task is on top of the stack)
         'tasks': Task.objects.filter(author=request.user).order_by('-id'),
+        'incomplete': Task.objects.filter(author=request.user, finished=False).count(),
     }
 
     return render(request, 'to_do/home.html', context)
@@ -57,7 +58,10 @@ def update_task(request, id):
 
     if request.method == 'POST':
         data = request.POST.copy()
-        data.update({"author": request.user})
+        data.update({
+            "author": request.user,
+            "updated": True,
+        })
         form = AddTaskForm(data, instance=task)
 
         if form.is_valid():

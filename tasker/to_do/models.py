@@ -8,6 +8,7 @@ class Task(models.Model):
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     finished = models.BooleanField(default=False)
+    updated = models.BooleanField(default=False)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

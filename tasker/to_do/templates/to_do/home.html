@@ -1,5 +1,10 @@
 {%extends "to_do/base_home.html"%} 
 
+{% block tasks-to-do %}
+  <span class="incomplete">You have <i>only {{ incomplete }}</i> {% if incomplete > 1%} tasks {%else%} task {%endif%} to do!</span>
+{% endblock tasks-to-do %}
+
+
 {% block search-add %}
   <div class="search-add">
     <div class="search">
@@ -19,10 +24,10 @@
       <div class="content">
         {% if task.finished %}
           <span class="dot" style="background-color: #bbb"></span>
-          <a href="{% url 'update-task' task.id %}" class="task-title"><s>{{ task.title }}</s></a>
+          <a href="{% url 'update-task' task.id %}" class="task-title"><s>{{ task.title }} {% if task.updated %} (updated) {% endif %}</s></a>
         {% else %}
           <span class="dot" style="background-color:green"></span>
-          <a href="{% url 'update-task' task.id %}" class="task-title">{{ task.title }}</a>
+          <a href="{% url 'update-task' task.id %}" class="task-title">{{ task.title }} {% if task.updated %} (updated) {% endif %}</a>
         {% endif %}
         
       </div>
