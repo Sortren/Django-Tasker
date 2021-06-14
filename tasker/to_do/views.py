@@ -53,16 +53,20 @@ def delete_task(request, id):
 
 @login_required(login_url='login')
 def update_task(request, id):
-    task = get_object_or_404(Task, id=id)
+    task = Task.objects.get(id=id)
 
     if request.method == 'POST':
-        form = AddTaskForm(request.POST)
+        data = request.POST.copy()
+        data.update({"author": request.user})
+        form = AddTaskForm(data, instance=task)
+
         if form.is_valid():
-            data = form.cleaned_data
-            task.update(title=data.get('title'), content=data.get('content'))
+            form.save()
             return redirect('to_do-home')
+        else:
+            form = AddTaskForm(instance=task)
     else:
-        form = AddTaskForm()
+        form = AddTaskForm(instance=task)
 
     context = {
         "task": task,
