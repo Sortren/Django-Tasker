@@ -24,7 +24,7 @@ def add_task(request):
 
         if form.is_valid():
             form.save()
-            form = AddTaskForm()
+            return redirect('to_do-home')
         else:
             form = AddTaskForm()
     else:
