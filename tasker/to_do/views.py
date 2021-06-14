@@ -17,13 +17,14 @@ def home(request):
 @login_required(login_url='login')
 def add_task(request):
     if request.method == 'POST':
-        form = AddTaskForm(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            task = Task(title=data.get('title'), content=data.get(
-                'content'), author=request.user)
-            task.save()
+        data = request.POST.copy()
+        data.update({"author": request.user})
+        form = AddTaskForm(data)
 
+        if form.is_valid():
+            form.save()
+            form = AddTaskForm()
+        else:
             form = AddTaskForm()
     else:
         form = AddTaskForm()
@@ -48,3 +49,25 @@ def delete_task(request, id):
     }
 
     return render(request, 'to_do/delete_task.html', context)
+
+
+@login_required(login_url='login')
+def update_task(request, id):
+    task = get_object_or_404(Task, id=id)
+
+    if request.method == 'POST':
+        form = AddTaskForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            task.update(title=data.get('title'), content=data.get('content'))
+            return redirect('to_do-home')
+    else:
+        form = AddTaskForm()
+
+    context = {
+        "task": task,
+        "form": form,
+        "name": "update-task",
+    }
+
+    return render(request, 'to_do/add_task.html', context)

@@ -22,9 +22,16 @@
       <input type="checkbox" class="checkbox">
     </div>
 
-    <div class="buttons-container">
-      <button class="add-task-button" type="submit">Add task</button>
-    </div>
+    {% if name == 'update-task' %}
+      <div class="buttons-container">
+        <button class="add-task-button" type="submit">Update task</button>
+      </div>
+    {% else %}
+      <div class="buttons-container">
+        <button class="add-task-button" type="submit">Add task</button>
+      </div>
+    {% endif %}
+
 
 
   </form>

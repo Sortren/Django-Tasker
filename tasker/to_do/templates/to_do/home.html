@@ -18,7 +18,7 @@
     <div class="task">
       <div class="content">
         <span class="dot"></span>
-        <a href="#" class="task-title">{{ task.title }}</a>
+        <a href="{% url 'update-task' task.id %}" class="task-title">{{ task.title }}</a>
       </div>
 
       <a href="{% url 'delete-task' task.id %}" class="delete-task">X</a>
