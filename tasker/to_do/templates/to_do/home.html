@@ -1,7 +1,21 @@
 {%extends "to_do/base_home.html"%} 
 
 {% block tasks-to-do %}
-  <span class="incomplete">You have <i>only {{ incomplete }}</i> {% if incomplete > 1%} tasks {%else%} task {%endif%} to do!</span>
+  <span class="incomplete">
+    You have
+    {% if not incomplete %}
+      <i>nothing</i>
+    {% else %}
+      <i>only {{ incomplete }}</i> 
+    {% endif %}
+
+    {% if incomplete > 1%} 
+      tasks 
+    {%elif incomplete == 1%} 
+      task 
+    {%endif%} 
+      to do!
+  </span>
 {% endblock tasks-to-do %}
 
 
