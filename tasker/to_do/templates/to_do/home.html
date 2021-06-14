@@ -17,8 +17,14 @@
   {% for task in tasks %}
     <div class="task">
       <div class="content">
-        <span class="dot"></span>
-        <a href="{% url 'update-task' task.id %}" class="task-title">{{ task.title }}</a>
+        {% if task.finished %}
+          <span class="dot" style="background-color: #bbb"></span>
+          <a href="{% url 'update-task' task.id %}" class="task-title"><s>{{ task.title }}</s></a>
+        {% else %}
+          <span class="dot" style="background-color:green"></span>
+          <a href="{% url 'update-task' task.id %}" class="task-title">{{ task.title }}</a>
+        {% endif %}
+        
       </div>
 
       <a href="{% url 'delete-task' task.id %}" class="delete-task">X</a>
