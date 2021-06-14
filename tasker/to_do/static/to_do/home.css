@@ -259,3 +259,21 @@ main {
 .checkboxes span {
   color: rgb(145, 145, 145);
 }
+/* -------------------------------------- */
+/* -------------DELETE TASK-------------- */
+/* -------------------------------------- */
+.delete-task-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.alert {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.btn {
+  margin-bottom: 10px;
+}
