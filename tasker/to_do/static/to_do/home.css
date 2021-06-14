@@ -84,25 +84,26 @@ main {
 /* -------------------------------------- */
 /* -------------SEARCH TASK-------------- */
 /* -------------------------------------- */
-.search-add {
+.mid-panel {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+}
+
+.sort-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
   padding: 30px 10px 20px 10px;
 }
 
-.input {
+.sort-by {
+  letter-spacing: 1px;
+}
+
+.button,
+.button:focus {
   outline: none;
-  border: 0.5px solid lightgrey;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.search {
-  display: flex;
-  gap: 5px;
-}
-
-.button-search {
   text-decoration: none;
   border: 0.5px solid lightgrey;
   cursor: pointer;
@@ -117,12 +118,9 @@ main {
   );
 }
 
-.button-search:focus {
-  outline: none;
-}
-
 .add-task:hover,
 .add-task {
+  padding-right: 18px;
   font-size: 24px;
   color: rgb(251, 110, 63);
   text-decoration: none;

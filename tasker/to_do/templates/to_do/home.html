@@ -19,22 +19,31 @@
 {% endblock tasks-to-do %}
 
 
-{% block search-add %}
-  <div class="search-add">
-    <div class="search">
-        <input type="text" class = "input">
-        <button class = "button-search">Search</button>
+{% block mid-panel %}
+  <div class="sort-buttons">
+
+    <div class="method">
+      <span class="sort-by">Sort by</span>
+    </div>
+
+    <div class="priority">    
+      <button class = "button priority">Priority</button>
     </div>
     
-    <div class="priority">
-
+    <div class="deadline">
+      <button class = "button deadline">Deadline</button>
     </div>
 
-    <div class="add">
-        <a href = "{% url 'add-task' %}" class = "add-task">+</a>
+    <div class="newest">
+      <button class = "button newest">Newest</button>
     </div>
+
   </div>
-{% endblock search-add %}
+
+  <div class="add">
+      <a href = "{% url 'add-task' %}" class = "add-task">+</a>
+  </div>
+{% endblock mid-panel %}
 
 
 {%block tasks%} 

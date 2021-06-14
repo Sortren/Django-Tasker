@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class Task(models.Model):
     class Priority(models.IntegerChoices):
+        # ex. the user see LOW in the Form which represents "1" in a database
         LOW = 1
         MEDIUM = 2
         HIGH = 3
