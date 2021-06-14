@@ -5,19 +5,21 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  background-color: #e5e5e5;
+}
+
 main {
   display: flex;
   min-height: 100vh;
   justify-content: center;
   align-items: center;
-  background-color: #e5e5e5;
 }
 
 .app {
   display: flex;
   flex-direction: column;
   min-width: 30%;
-  margin: auto;
   border-radius: 10px;
   background-color: white;
   overflow: hidden;
@@ -27,7 +29,6 @@ main {
   color: white;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   padding: 10px;
   background: rgb(251, 110, 63);
   background: linear-gradient(
@@ -246,5 +247,9 @@ main {
 @media (max-width: 600px) {
   .app {
     justify-content: center;
+  }
+
+  main {
+    min-height: 80vh;
   }
 }
