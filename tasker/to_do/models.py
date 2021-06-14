@@ -16,6 +16,7 @@ class Task(models.Model):
     finished = models.BooleanField(default=False)
     updated = models.BooleanField(default=False)
     priority = models.IntegerField(default=1, choices=Priority.choices)
+    deadline = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):

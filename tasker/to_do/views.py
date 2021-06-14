@@ -17,8 +17,10 @@ def home(request):
         if sort_form_value == 'priority':
             tasks = Task.objects.filter(
                 author=request.user).order_by('-priority')
-        else:
-            pass
+
+        elif sort_form_value == 'deadline':
+            tasks = Task.objects.filter(
+                author=request.user).order_by('deadline')
 
     else:
         tasks = Task.objects.filter(author=request.user).order_by('-id')
@@ -26,13 +28,12 @@ def home(request):
     context = {
         # Displaying tasks only for logged in user, ordered by id - descendingly (newest task is on top of the stack) /by default
         'tasks': tasks,
+        # number of incompleted tasks
         'incomplete': Task.objects.filter(author=request.user, finished=False).count(),
         'form': sort_form
     }
 
     return render(request, 'to_do/home.html', context)
-
-# .order_by('-id')
 
 
 @login_required(login_url='login')
