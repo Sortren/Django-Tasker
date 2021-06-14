@@ -16,7 +16,7 @@ main {
 .app {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  min-width: 30%;
   margin: auto;
   border-radius: 10px;
   background-color: white;
@@ -241,4 +241,10 @@ main {
 
 .checkboxes span {
   color: rgb(145, 145, 145);
+}
+
+@media (max-width: 600px) {
+  .app {
+    justify-content: center;
+  }
 }
