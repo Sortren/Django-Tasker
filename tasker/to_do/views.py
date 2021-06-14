@@ -2,10 +2,12 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .models import Task
 from .forms import AddTaskForm
 from django.contrib.auth.decorators import login_required
+from .filters import TaskFilter
 
 
 @login_required(login_url='login')
 def home(request):
+
     context = {
         # Displaying tasks only for logged in user, ordered by id - descendingly (newest task is on top of the stack)
         'tasks': Task.objects.filter(author=request.user).order_by('-id'),
