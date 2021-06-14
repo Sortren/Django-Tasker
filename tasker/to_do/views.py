@@ -57,11 +57,19 @@ def update_task(request, id):
     task = Task.objects.get(id=id)
 
     if request.method == 'POST':
+        # copy data from post request
         data = request.POST.copy()
-        data.update({
-            "author": request.user,
-            "updated": True,
-        })
+
+        if request.POST.get('finished'):
+            data.update({
+                "author": request.user,
+            })
+        else:
+            data.update({
+                "author": request.user,
+                "updated": True,
+            })
+
         form = AddTaskForm(data, instance=task)
 
         if form.is_valid():
