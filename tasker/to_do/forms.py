@@ -13,3 +13,14 @@ class AddTaskForm(forms.ModelForm):
                 'cols': 40
             })
         }
+
+
+class OrderTasks(forms.Form):
+    METHOD_CHOICE = [
+        ('newest', 'Newest'),
+        ('deadline', 'Deadline'),
+        ('priority', 'Priority'),
+    ]
+
+    method = forms.CharField(
+        label="", widget=forms.Select(choices=METHOD_CHOICE))

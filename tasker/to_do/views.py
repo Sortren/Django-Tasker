@@ -1,20 +1,38 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Task
-from .forms import AddTaskForm
+from .forms import AddTaskForm, OrderTasks
 from django.contrib.auth.decorators import login_required
 from .filters import TaskFilter
 
 
 @login_required(login_url='login')
 def home(request):
+    sort_form = OrderTasks()
+    tasks = Task.objects.filter(author=request.user).order_by('-id')
+
+    if request.method == 'POST':
+        sort_form = OrderTasks(request.POST)
+        sort_form_value = sort_form['method'].value()
+
+        if sort_form_value == 'priority':
+            tasks = Task.objects.filter(
+                author=request.user).order_by('-priority')
+        else:
+            pass
+
+    else:
+        tasks = Task.objects.filter(author=request.user).order_by('-id')
 
     context = {
-        # Displaying tasks only for logged in user, ordered by id - descendingly (newest task is on top of the stack)
-        'tasks': Task.objects.filter(author=request.user).order_by('-id'),
+        # Displaying tasks only for logged in user, ordered by id - descendingly (newest task is on top of the stack) /by default
+        'tasks': tasks,
         'incomplete': Task.objects.filter(author=request.user, finished=False).count(),
+        'form': sort_form
     }
 
     return render(request, 'to_do/home.html', context)
+
+# .order_by('-id')
 
 
 @login_required(login_url='login')

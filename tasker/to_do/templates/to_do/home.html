@@ -21,10 +21,10 @@
 
 {% block mid-panel %}
   <div class="sort">
-    <form method="GET">
+    <form method="POST">
       {% csrf_token %}
       <!-- component injected here -->
-      
+      {{form}}
       
       <button class = "button" type="submit">Sort</button>
     </form>
