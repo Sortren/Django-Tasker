@@ -8,25 +8,36 @@ from .filters import TaskFilter
 @login_required(login_url='login')
 def home(request):
     sort_form = OrderTasks()
-    tasks = Task.objects.filter(author=request.user).order_by('-id')
+
+    """
+    Defaultly, the tasks are being sorted by newest descendingly and pushing 
+    finished tasks to the bottom of the stack
+    """
+
+    tasks = Task.objects.filter(
+        author=request.user).order_by('finished', '-id')
 
     if request.method == 'POST':
         sort_form = OrderTasks(request.POST)
-        sort_form_value = sort_form['method'].value()
+
+        try:
+            sort_form_value = sort_form['method'].value()
+        except KeyError as e:
+            pass
 
         if sort_form_value == 'priority':
             tasks = Task.objects.filter(
-                author=request.user).order_by('-priority')
+                author=request.user).order_by('finished', '-priority')
 
         elif sort_form_value == 'deadline':
             tasks = Task.objects.filter(
-                author=request.user).order_by('deadline')
+                author=request.user).order_by('finished', 'deadline')
 
-    else:
-        tasks = Task.objects.filter(author=request.user).order_by('-id')
+    else:  # if request.method == 'GET'
+        tasks = Task.objects.filter(
+            author=request.user).order_by('finished', '-id')
 
     context = {
-        # Displaying tasks only for logged in user, ordered by id - descendingly (newest task is on top of the stack) /by default
         'tasks': tasks,
         # number of incompleted tasks
         'incomplete': Task.objects.filter(author=request.user, finished=False).count(),
