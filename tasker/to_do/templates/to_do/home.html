@@ -38,29 +38,24 @@
 
 
 {%block tasks%} 
+<div class = "tasks-container overflow">
   {% for task in tasks %}
     <div class="task">
       <div class="content">
         <!-- PRIORITY IN DATA BASE IS REPRESENTED BY 1 - 2 - 3  -->
 
         {% if task.finished %}
-          <span class="dot" style="background-color: #bbb"></span>
+          <span class="dot grey"></span>
           <a href="{% url 'update-task' task.id %}" class="task-title"><s>{{ task.title }}</s></a>
         
         {% elif task.priority == 1 %}
-        <span class="dot" style="
-          background: rgb(255,251,95);
-          background: linear-gradient(90deg, rgba(255,251,95,0.9332107843137255) 70%, rgba(255,197,110,0.9192051820728291) 100%);"></span> 
+        <span class="dot yellow"></span> 
           
         {% elif task.priority == 2 %}
-          <span class="dot" style="
-          background: rgb(42,233,54);
-          background: linear-gradient(90deg, rgba(42,233,54,0.9332107843137255) 70%, rgba(110,255,253,0.9192051820728291) 100%);"></span> 
+          <span class="dot green"></span> 
      
         {% elif task.priority == 3 %}
-          <span class="dot" style="
-          background: rgb(255,29,29);
-          background: linear-gradient(90deg, rgba(255,29,29,0.9332107843137255) 70%, rgba(255,197,110,0.9192051820728291) 100%);"></span> 
+          <span class="dot red"></span> 
         {% endif %}
 
         {% if not task.finished %}
@@ -72,6 +67,7 @@
       <a href="{% url 'delete-task' task.id %}" class="delete-task">X</a>
       
     </div>
-  {%endfor%} 
+  {%endfor%}
+</div> 
 {%endblock tasks%}
 

@@ -14,18 +14,21 @@ body {
 
 main {
   display: flex;
-  min-height: 100vh;
+  min-height: calc(100vh - 200px);
   justify-content: center;
-  align-items: center;
+  position: relative;
+  top: 15vh;
 }
 
 .app {
   display: flex;
   flex-direction: column;
   min-width: 30%;
+  height: fit-content;
   border-radius: 10px;
   background-color: white;
   overflow: hidden;
+  margin-bottom: 15vh;
 }
 
 .top-bar {
@@ -130,10 +133,15 @@ main {
 /* -------------------------------------- */
 /* -------------TASK LIST---------------- */
 /* -------------------------------------- */
+.overflow {
+  overflow-y: scroll;
+}
+
 .struct {
   border-top: 1px solid lightgrey;
   display: flex;
   gap: 41px;
+  max-height: 42vh;
 }
 
 .tasks-container {
@@ -163,12 +171,6 @@ main {
   text-decoration: none;
 }
 
-.dot {
-  height: 25px;
-  width: 25px;
-  border-radius: 50%;
-}
-
 .delete-task,
 .delete-task:hover {
   color: rgb(251, 110, 63);
@@ -178,6 +180,48 @@ main {
     rgba(252, 229, 70, 1) 100%
   );
 }
+
+/* -------------------------------------- */
+/* -------------TASK'S DOTS------------ */
+/* -------------------------------------- */
+
+.dot {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+
+.grey {
+  background-color: #bbb;
+}
+
+.yellow {
+  background: rgb(255, 251, 95);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 251, 95, 0.9332107843137255) 70%,
+    rgba(255, 197, 110, 0.9192051820728291) 100%
+  );
+}
+
+.green {
+  background: rgb(42, 233, 54);
+  background: linear-gradient(
+    90deg,
+    rgba(42, 233, 54, 0.9332107843137255) 70%,
+    rgba(110, 255, 253, 0.9192051820728291) 100%
+  );
+}
+
+.red {
+  background: rgb(255, 29, 29);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 29, 29, 0.9332107843137255) 70%,
+    rgba(255, 197, 110, 0.9192051820728291) 100%
+  );
+}
+
 /* -------------------------------------- */
 /* -------------FORM ADD-TASK------------ */
 /* -------------------------------------- */

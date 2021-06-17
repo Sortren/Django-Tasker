@@ -40,19 +40,17 @@
             </div>
 
             <div class = "struct">   
-                <div class = "tasks-container">
-                    {% block tasks %}
-                    {% endblock tasks %}
+                {% block tasks %}
+                {% endblock tasks %}
 
-                    {% block profile%}
-                    {% endblock profile%}
+                {% block profile%}
+                {% endblock profile%}
 
-                    {% block add_task %}
-                    {% endblock add_task %} 
+                {% block add_task %}
+                {% endblock add_task %} 
 
-                    {% block delete_task %}
-                    {% endblock delete_task %} 
-                </div>
+                {% block delete_task %}
+                {% endblock delete_task %} 
             </div>
         </div>
     </main>

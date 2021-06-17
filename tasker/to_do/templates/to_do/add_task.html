@@ -1,6 +1,7 @@
 {%extends "to_do/base_home.html"%} 
 
 {% block add_task%}
+  <div class = "tasks-container">
   <form method="POST" class="add-task-form">
     {% csrf_token %}
 
@@ -49,4 +50,5 @@
 
 
   </form>
+</div>
 {% endblock add_task%} 
