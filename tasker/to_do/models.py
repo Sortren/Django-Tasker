@@ -17,6 +17,12 @@ class Task(models.Model):
     updated = models.BooleanField(default=False)
     priority = models.IntegerField(default=1, choices=Priority.choices)
     deadline = models.DateTimeField(default=timezone.now)
+
+    """
+    Author is a foreign key in a Task's table, because the containing user's id is being taken from the User's table 
+    to create a relation between them. Now each task has a field called "author" filled with an id of the user
+    who created this task. 
+    """
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
