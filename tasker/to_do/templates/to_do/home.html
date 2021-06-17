@@ -48,13 +48,19 @@
           <a href="{% url 'update-task' task.id %}" class="task-title"><s>{{ task.title }}</s></a>
         
         {% elif task.priority == 1 %}
-          <span class="dot" style="background-color:rgba(233, 230, 61, 0.911)"></span>
+        <span class="dot" style="
+          background: rgb(255,251,95);
+          background: linear-gradient(90deg, rgba(255,251,95,0.9332107843137255) 70%, rgba(255,197,110,0.9192051820728291) 100%);"></span> 
           
         {% elif task.priority == 2 %}
-          <span class="dot" style="background-color:rgba(25, 196, 39, 0.815)"></span>
+          <span class="dot" style="
+          background: rgb(42,233,54);
+          background: linear-gradient(90deg, rgba(42,233,54,0.9332107843137255) 70%, rgba(110,255,253,0.9192051820728291) 100%);"></span> 
      
         {% elif task.priority == 3 %}
-          <span class="dot" style="background-color:rgba(206, 21, 21, 0.815)"></span> 
+          <span class="dot" style="
+          background: rgb(255,29,29);
+          background: linear-gradient(90deg, rgba(255,29,29,0.9332107843137255) 70%, rgba(255,197,110,0.9192051820728291) 100%);"></span> 
         {% endif %}
 
         {% if not task.finished %}
