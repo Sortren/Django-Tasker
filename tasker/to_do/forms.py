@@ -11,7 +11,9 @@ class AddTaskForm(forms.ModelForm):
             'content': forms.Textarea(attrs={
                 'rows': 3,
                 'cols': 40
-            })
+            }),
+            'priority': forms.Select(attrs={'class': 'drop-down'}),
+            'deadline': forms.DateTimeInput(attrs={'class': 'drop-down'}, )
         }
 
 
@@ -23,4 +25,4 @@ class OrderTasks(forms.Form):
     ]
 
     method = forms.CharField(
-        label="", widget=forms.Select(choices=METHOD_CHOICE))
+        label="", widget=forms.Select(attrs={'class': 'drop-down'}, choices=METHOD_CHOICE))

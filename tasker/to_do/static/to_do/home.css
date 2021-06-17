@@ -93,6 +93,19 @@ main {
   justify-content: space-between;
 }
 
+.drop-down {
+  padding: 5px 15px 5px 15px;
+  color: #333333;
+  background-color: #eeeeee;
+  border: 0.5px solid lightgrey;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.drop-down:focus {
+  outline: none;
+}
+
 .sort {
   display: flex;
   align-items: center;
@@ -285,6 +298,10 @@ main {
     rgba(251, 110, 63, 0.9500175070028011) 10%,
     rgba(252, 229, 70, 1) 100%
   );
+}
+
+#id_deadline {
+  cursor: text;
 }
 
 .checkboxes {
