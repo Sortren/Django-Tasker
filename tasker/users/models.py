@@ -7,4 +7,4 @@ class Profile(models.Model):
     total_tasks_finished = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.user
+        return self.user.username
