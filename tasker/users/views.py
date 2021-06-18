@@ -24,4 +24,10 @@ def register(request):
 
 @login_required(login_url='login')
 def profile(request):
-    return render(request, 'users/profile.html')
+    profile = Profile.objects.get(user=request.user)
+
+    context = {
+        'total_tasks_finished': profile.total_tasks_finished
+    }
+
+    return render(request, 'users/profile.html', context)

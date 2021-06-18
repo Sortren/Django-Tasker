@@ -5,6 +5,17 @@
   <span class="welcome">Welcome to your profile <a href = "{% url 'profile' %} " class = "username">{{ user.username }},</a></span>
 {% endblock header%}
 
+{% block mid-panel %}
+  <div class="sort">
+    <form method="POST" class="reset">
+      {% csrf_token %}
+      
+      <button class = "button" type="submit">Reset</button>
+    </form>
+    
+  </div>
+{% endblock mid-panel %}
+
 
 {% block tasks-to-do %}
     <span class="incomplete">
@@ -15,6 +26,38 @@
 
 {% block profile%}
     <div class = "tasks-container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Stat</th>
+            <th scope="col">Value</th>
+
+          </tr>
+        </thead>
+        <tbody>    
+          <tr>
+            <th scope="row">1</th>
+            <td>Tasks finished (total)</td>
+            <td>{{total_tasks_finished}}</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Tasks finished before deadline</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Tasks finished after deadline</td>
+            <td>x</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Rating</td>
+            <td>x%</td>
+          </tr>
+        </tbody>
+      </table>
         
     </div>
 {% endblock profile%}

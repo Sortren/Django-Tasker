@@ -154,7 +154,7 @@ main {
   border-top: 1px solid lightgrey;
   display: flex;
   gap: 41px;
-  max-height: 42vh;
+  max-height: 43vh;
 }
 
 .tasks-container {
@@ -280,7 +280,6 @@ main {
 .buttons-container {
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
 }
 
 .buttons-container button:focus,
@@ -334,3 +333,7 @@ main {
 .btn {
   margin-bottom: 10px;
 }
+
+/* -------------------------------------- */
+/* -------------PROFILE------------------ */
+/* -------------------------------------- */
