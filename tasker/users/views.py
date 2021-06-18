@@ -1,13 +1,20 @@
 from django.shortcuts import redirect, render
 from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
+from .models import Profile
 
 
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
+
         if form.is_valid():
-            form.save()
+            # getting an user's instance from a form
+            user = form.save(commit=False)
+            profile = Profile(user=user)  # assigning the user to profile table
+            user.save()
+            profile.save()
+
             return redirect('to_do-home')
     else:
         form = UserRegisterForm()

@@ -49,6 +49,7 @@ def home(request):
 
 @login_required(login_url='login')
 def add_task(request):
+
     if request.method == 'POST':
         data = request.POST.copy()
         data.update({"author": request.user})
