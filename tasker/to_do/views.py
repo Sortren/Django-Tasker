@@ -1,7 +1,8 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Task
-from .forms import AddTaskForm, OrderTasks
 from django.contrib.auth.decorators import login_required
+from .models import Task
+from users.models import Profile
+from .forms import AddTaskForm, OrderTasks
 from .filters import TaskFilter
 
 
@@ -88,6 +89,7 @@ def delete_task(request, id):
 @login_required(login_url='login')
 def update_task(request, id):
     task = Task.objects.get(id=id)
+    profile = Profile.objects.get(user=request.user)
 
     if request.method == 'POST':
         # copy data from post request
@@ -97,6 +99,7 @@ def update_task(request, id):
             data.update({
                 "author": request.user,
             })
+            profile.total_tasks_finished += 1
         else:
             data.update({
                 "author": request.user,
@@ -106,6 +109,7 @@ def update_task(request, id):
         form = AddTaskForm(data, instance=task)
 
         if form.is_valid():
+            profile.save()
             form.save()
             return redirect('to_do-home')
         else:
