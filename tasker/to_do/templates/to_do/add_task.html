@@ -39,10 +39,12 @@
     
 
     <div class="checkboxes">
-      <div class="finished">
-        <span>Task finished</span>
-        {{form.finished}}
-      </div>
+      {% if name == 'update-task' %}
+        <div class="finished">
+          <span>Task finished</span>
+          {{form.finished}}
+        </div>
+      {% endif %}
       
       <div class="deadline">
         <span>Deadline</span>
