@@ -1,5 +1,15 @@
 {%extends "to_do/base_home.html"%} 
 
+{% block header%}
+  <span class="welcome">Remember <a href = "{% url 'profile' %} " class = "username">{{ user.username }},</a></span>
+{% endblock header%}
+
+{% block tasks-to-do %}
+  <span class="incomplete">
+    Deleting a task is a very serious thing!
+  </span>
+{% endblock tasks-to-do %}
+
 {% block delete_task %}
 <div class = "tasks-container">
     <form method="POST" class="delete-task-form">

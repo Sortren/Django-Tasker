@@ -302,6 +302,7 @@ main {
 
 #id_deadline {
   cursor: text;
+  width: 150px;
 }
 
 .checkboxes {

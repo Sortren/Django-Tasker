@@ -1,5 +1,24 @@
 {%extends "to_do/base_home.html"%} 
 
+{% block header%}
+  <span class="welcome"><a href = "{% url 'profile' %} " class = "username">{{ user.username }},</a></span>
+{% endblock header%}
+
+
+{% block tasks-to-do %}
+  {% if name == 'update-task' %}
+    <span class="incomplete">
+      You are about to update this Task!
+    </span>
+  {% else %}
+    <span class="incomplete">
+      You are about to add a new Task!
+    </span>
+  {% endif %}
+{% endblock tasks-to-do %}
+
+
+
 {% block add_task%}
   <div class = "tasks-container">
   <form method="POST" class="add-task-form">

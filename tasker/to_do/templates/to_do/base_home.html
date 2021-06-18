@@ -27,7 +27,9 @@
                 </div>
 
                 <div class="text">
-                    <span class="welcome">Welcome back <a href = "{% url 'profile' %} " class = "username">{{ user.username }},</a></span>
+                    {% block header%}
+                        
+                    {% endblock header%}
                     
                     {% block tasks-to-do %}
                         

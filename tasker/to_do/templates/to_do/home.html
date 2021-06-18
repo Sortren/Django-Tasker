@@ -1,5 +1,10 @@
 {%extends "to_do/base_home.html"%} 
 
+{% block header%}
+  <span class="welcome">Welcome back <a href = "{% url 'profile' %} " class = "username">{{ user.username }},</a></span>   
+{% endblock header%}
+
+
 {% block tasks-to-do %}
   <span class="incomplete">
     You have
