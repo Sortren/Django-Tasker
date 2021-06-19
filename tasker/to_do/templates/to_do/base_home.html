@@ -18,7 +18,11 @@
 </head>
 
 <body>
+    
     <main>
+        {% block alert %}
+    
+        {% endblock alert %}
         <div class = "app">
             <div class = "top-bar">
                 <div class="navigation">
@@ -54,8 +58,11 @@
                 {% block delete_task %}
                 {% endblock delete_task %} 
             </div>
+
         </div>
+        
     </main>
+    
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
