@@ -5,8 +5,8 @@
 </p>
 
 I have created this project relying on my old NodeJS (w/ Express) app called "<a href="https://github.com/Sortren/Tasker">Tasker</a>". The database that I have been using throughout my entire project was built-in django sqlite3. In the nearest future, I will dockerize the app and connect it to the PostgreSQL.
-About the front-end part of this project, I was using django templates with inheritance (of course with css! ;p). Furthermore you might also see 
-the "requirements.txt" file, it's due to fact that I have been using venv for the entire project. 
+About the front-end part of this project, I was using django templates with inheritance (of course with css and a little bit of bootstrap 5.0 ;p). 
+Furthermore you might also see the "requirements.txt" file, it's due to the fact that I have been using venv for the entire project. 
 
 ----
 
