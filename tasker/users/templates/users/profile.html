@@ -7,7 +7,7 @@
 
 {% block mid-panel %}
   <div class="sort">
-    <form method="POST" class="reset">
+    <form method="POST" action="reset-stats/" class="reset">
       {% csrf_token %}
       
       <button class = "button" type="submit">Reset</button>

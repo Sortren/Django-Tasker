@@ -31,3 +31,12 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+
+@login_required(login_url='login')
+def reset_stats(request):
+    profile = Profile.objects.get(user=request.user)
+    profile.total_tasks_finished = 0
+    profile.save()
+
+    return redirect('profile')
