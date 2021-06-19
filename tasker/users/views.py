@@ -36,7 +36,9 @@ def profile(request):
 @login_required(login_url='login')
 def reset_stats(request):
     profile = Profile.objects.get(user=request.user)
-    profile.total_tasks_finished = 0
-    profile.save()
+
+    if request.method == 'POST':
+        profile.total_tasks_finished = 0
+        profile.save()
 
     return redirect('profile')
