@@ -27,7 +27,7 @@ def profile(request):
     profile = Profile.objects.get(user=request.user)
 
     context = {
-        'total_tasks_finished': profile.total_tasks_finished
+        'profile': profile
     }
 
     return render(request, 'users/profile.html', context)
