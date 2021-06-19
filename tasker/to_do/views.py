@@ -4,7 +4,6 @@ from django.utils import timezone
 from .models import Task
 from users.models import Profile
 from .forms import AddTaskForm, OrderTasks
-from .filters import TaskFilter
 
 
 @login_required(login_url='login')
@@ -100,7 +99,14 @@ def update_task(request, id):
             data.update({
                 "author": request.user,
             })
+
+            if timezone.now() <= task.deadline:
+                profile.finished_before_deadline += 1
+            else:
+                profile.finished_after_deadline += 1
+
             profile.total_tasks_finished += 1
+
         else:
             data.update({
                 "author": request.user,
