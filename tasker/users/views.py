@@ -41,6 +41,9 @@ def reset_stats(request):
 
     if request.method == 'POST':
         profile.total_tasks_finished = 0
+        profile.finished_before_deadline = 0
+        profile.finished_after_deadline = 0
+        profile.rating = 0
         profile.save()
 
     return redirect('profile')
