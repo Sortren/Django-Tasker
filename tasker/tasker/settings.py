@@ -128,6 +128,7 @@ DATETIME_INPUT_FORMATS = [
 
 STATIC_URL = '/static/'
 
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'to_do-home'
 
 # Default primary key field type

@@ -6,7 +6,7 @@ from users.models import Profile
 from .forms import AddTaskForm, OrderTasks
 
 
-@login_required(login_url='login')
+@login_required
 def home(request):
     sort_form = OrderTasks()
 
@@ -48,7 +48,7 @@ def home(request):
     return render(request, 'to_do/home.html', context)
 
 
-@login_required(login_url='login')
+@login_required
 def add_task(request):
 
     if request.method == 'POST':
@@ -71,7 +71,7 @@ def add_task(request):
     return render(request, 'to_do/add_task.html', context)
 
 
-@login_required(login_url='login')
+@login_required
 def delete_task(request, id):
     task = get_object_or_404(Task, id=id)
     if request.method == 'POST':
@@ -86,7 +86,7 @@ def delete_task(request, id):
     return render(request, 'to_do/delete_task.html', context)
 
 
-@login_required(login_url='login')
+@login_required
 def update_task(request, id):
     task = Task.objects.get(id=id)
     profile = Profile.objects.get(user=request.user)

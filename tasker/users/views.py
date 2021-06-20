@@ -24,7 +24,7 @@ def register(request):
     return render(request, 'users/register.html', {'form': form})
 
 
-@login_required(login_url='login')
+@login_required
 def profile(request):
     profile = Profile.objects.get(user=request.user)
 
@@ -35,7 +35,7 @@ def profile(request):
     return render(request, 'users/profile.html', context)
 
 
-@login_required(login_url='login')
+@login_required
 def reset_stats(request):
     profile = Profile.objects.get(user=request.user)
 
@@ -49,7 +49,7 @@ def reset_stats(request):
     return redirect('profile')
 
 
-@login_required(login_url='login')
+@login_required
 def refresh_stats(request):
     profile = Profile.objects.get(user=request.user)
 
