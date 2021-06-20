@@ -74,8 +74,8 @@ def add_task(request):
 @login_required
 def delete_task(request, id):
     task = get_object_or_404(Task, id=id)
+
     if request.method == 'POST':
-        # confirm that we want to delete a task
         task.delete()
         return redirect('to_do-home')
 
