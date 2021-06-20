@@ -13,10 +13,11 @@ def validate_rating(value):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    total_tasks_finished = models.IntegerField(default=0)
-    finished_before_deadline = models.IntegerField(default=0)
-    finished_after_deadline = models.IntegerField(default=0)
-    rating = models.IntegerField(default=0, validators=[validate_rating])
+    total_tasks_finished = models.PositiveIntegerField(default=0)
+    finished_before_deadline = models.PositiveIntegerField(default=0)
+    finished_after_deadline = models.PositiveIntegerField(default=0)
+    rating = models.PositiveIntegerField(
+        default=0, validators=[validate_rating])
 
     def __str__(self):
         return self.user.username

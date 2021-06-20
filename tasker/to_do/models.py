@@ -15,7 +15,7 @@ class Task(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     finished = models.BooleanField(default=False)
     updated = models.BooleanField(default=False)
-    priority = models.IntegerField(default=1, choices=Priority.choices)
+    priority = models.PositiveIntegerField(default=1, choices=Priority.choices)
     deadline = models.DateTimeField(default=timezone.now)
 
     """
