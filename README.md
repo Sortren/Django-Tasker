@@ -13,6 +13,7 @@
 <img align = "left" alt = "Git" width = "26px" src = "https://user-images.githubusercontent.com/79079000/118809398-e1f7da00-b8aa-11eb-809d-bef2203df08d.png" />
 <img align = "left" alt = "HTML" width = "26px" src = "https://user-images.githubusercontent.com/79079000/122796022-39300680-d2be-11eb-8bff-2811d3de2467.png" />
 <img align = "left" alt = "CSS" width = "26px" src = "https://user-images.githubusercontent.com/79079000/122795919-1a317480-d2be-11eb-97f6-ba585487cb7e.png" />
+<img align = "left" alt = "BOOTSTRAP" width = "26px" src = "https://user-images.githubusercontent.com/79079000/122796393-9fb52480-d2be-11eb-9868-c9ffa1492128.png" />
 
 
 <br />
