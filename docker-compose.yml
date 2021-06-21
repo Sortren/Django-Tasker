@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+
+  web:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      #map "tasker" main dir to /code directory in container
+      - ./tasker:/code/
+    ports:
+      #every request on port 8000 will be redirected to port 8000 on the docker's container
+      #left -> localhost, right -> docker's container
+      - "8000:8000"
+      #web works only when db is working
+    depends_on:
+      - db
