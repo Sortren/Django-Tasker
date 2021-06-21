@@ -4,7 +4,22 @@
   <img src="https://user-images.githubusercontent.com/79079000/122651129-0f000c80-d137-11eb-9236-08c71c3223da.gif">
 </p>
 
-I have created this project relying on my old NodeJS (w/ Express) app called "<a href="https://github.com/Sortren/Tasker">Tasker</a>". The database that I have been using throughout my entire project was built-in django sqlite3. In the nearest future, I will dockerize the app and connect it to the PostgreSQL.
+### Technologies used:
+
+<img align = "left" alt = "Python" width = "26px" src = "https://user-images.githubusercontent.com/79079000/118809383-da383580-b8aa-11eb-9b90-b36be1ebd84a.png" />
+<img align = "left" alt = "Django" width = "26px" src = "https://user-images.githubusercontent.com/79079000/121752849-5ff97a80-cb11-11eb-96b3-d66912e2be80.png" />
+<img align = "left" alt = "Postgres" width = "26px" src = "https://user-images.githubusercontent.com/79079000/121753004-ad75e780-cb11-11eb-9776-e869b9494a05.png" />
+<img align = "left" alt = "Docker" width = "26px" src = "https://user-images.githubusercontent.com/79079000/121753067-d0080080-cb11-11eb-8406-43c748cf0888.png" />
+<img align = "left" alt = "Git" width = "26px" src = "https://user-images.githubusercontent.com/79079000/118809398-e1f7da00-b8aa-11eb-809d-bef2203df08d.png" />
+<img align = "left" alt = "HTML" width = "26px" src = "https://user-images.githubusercontent.com/79079000/122796022-39300680-d2be-11eb-8bff-2811d3de2467.png" />
+<img align = "left" alt = "CSS" width = "26px" src = "https://user-images.githubusercontent.com/79079000/122795919-1a317480-d2be-11eb-97f6-ba585487cb7e.png" />
+
+
+<br />
+
+----
+
+I have created this project relying on my old NodeJS (w/ Express) app called "<a href="https://github.com/Sortren/Tasker">Tasker</a>". The database that I have been using throughout my entire project was built-in django sqlite3. Right now the project is running on PostgreSQL deployed on a Docker container.
 About the front-end part of this project, I was using django templates with inheritance (of course with css and a little bit of bootstrap 5.0 ;p). 
 Furthermore you might also see the "requirements.txt" file, it's due to the fact that I have been using venv for the entire project. 
 
